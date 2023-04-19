@@ -6,7 +6,7 @@ public class StarTree{
         System.out.println("input n: ");
         int n = keyboard.nextInt();
         for (int i=1;i<=n;i++){
-            for (int m = 0; m <=n-i; m++) {
+            for (int m = 0; m <n-i; m++) {
                 System.out.print(" ");
             }
             for (int k = 1; k <= 2*i-1; k++){
