@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class cart {
-    public static final int MAX_NUMBERS_ORDERED=20;
     private List<DigitalVideoDisc> qtyOrdered; 
     public cart(){
         qtyOrdered = new ArrayList<>();
