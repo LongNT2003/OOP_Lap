@@ -1,4 +1,4 @@
-package LAP2;
+
 public class AIMS{
     public static void main(String[] args){
         cart order = new cart();
