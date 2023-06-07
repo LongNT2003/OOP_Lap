@@ -1,13 +1,56 @@
 package LAP2;
 
 public class DigitalVideoDisc {
-    private String title;
+    
     private String category;
     private String director;
     private int length;
+    public static int getNbDigitalVideoDiscs() {
+        return nbDigitalVideoDiscs;
+    }
+    public static void setNbDigitalVideoDiscs(int nbDigitalVideoDiscs) {
+        DigitalVideoDisc.nbDigitalVideoDiscs = nbDigitalVideoDiscs;
+    }
     private float cost;
     public static int nbDigitalVideoDiscs = 0;
     public int id;
+    private String title;
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    public String getCategory() {
+        return category;
+    }
+    public void setCategory(String category) {
+        this.category = category;
+    }
+    public String getDirector() {
+        return director;
+    }
+    public void setDirector(String director) {
+        this.director = director;
+    }
+    public int getLength() {
+        return length;
+    }
+    public void setLength(int length) {
+        this.length = length;
+    }
+    public float getCost() {
+        return cost;
+    }
+    public void setCost(float cost) {
+        this.cost = cost;
+    }
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
     public DigitalVideoDisc(String title){
         this.title=title;
         nbDigitalVideoDiscs++;
@@ -39,23 +82,5 @@ public class DigitalVideoDisc {
         nbDigitalVideoDiscs++;
         id=nbDigitalVideoDiscs;
         
-    }
-    public void setTitle(String title1){
-        this.title=title1;
-    }
-    public String getTitle(){
-        return title;
-    }
-    public String getCategory(){
-        return category;
-    }
-    public String getDirector(){
-        return director;
-    }
-    public int getLength(){
-        return length;
-    }
-    public float getCost(){
-        return cost;
     }
 }
