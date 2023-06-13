@@ -1,9 +1,8 @@
 package aims.cart;
 import java.util.ArrayList;
 
-import media.DigitalVideoDisc;
-import media.Media;
-public class cart {
+import aims.media.Media;
+public class Cart {
     public static final int MAX_ORDERED=20;
     private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
     public void addMedia(Media media){
