@@ -2,14 +2,8 @@ package media;
 import java.util.ArrayList;
 import java.util.List;
 public class Book extends Media {
-    // private int id;
 
-    // private String title;
-    // private String category;
-    // private float cost;
     private List<String> authors= new ArrayList<String>();
-    
-
     public List<String> getAuthors() {
         return this.authors;
     }
