@@ -1,6 +1,5 @@
 package aims.cart;
 import java.util.ArrayList;
-import java.util.List;
 
 import media.DigitalVideoDisc;
 import media.Media;
@@ -42,7 +41,7 @@ public class cart {
     public void searchMedia(int identify){
         boolean found = false;
         for (Media item : itemsOrdered){
-            if (item.id==identify){
+            if (item.get==identify){
                 found=true;
                 System.out.println(item.toString());
                 break;
@@ -65,7 +64,5 @@ public class cart {
             System.out.println("no match is found");
         }
     }
-    public ArrayList<Media> getItemsOrdered() {
-        return itemsOrdered;
-    }
+    
 }

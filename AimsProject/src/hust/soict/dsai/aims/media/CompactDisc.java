@@ -1,16 +1,15 @@
-package media;
+package aims.media;
 import java.util.ArrayList;
-// import java.util.List;
 public class CompactDisc extends Media implements Playable {
     private String artist;
-    private ArrayList<Track> tracks;
+    private ArrayList<Track> tracks = new ArrayList<Track>();
     public String getArtist() {
         return artist;
     }
-    public CompactDisc(int id, String title, String category,float cost, String artist){
+    public CompactDisc(int id, String title, String category,float cost, String artist,ArrayList<Track> tracks){
         super();
         this.artist=artist;
-        tracks= new ArrayList<>();
+        this.tracks=tracks;
     }
     public void addTrack(Track order){
         if (tracks.contains(order)){System.out.println("track already in list of tracks");}
@@ -27,10 +26,19 @@ public class CompactDisc extends Media implements Playable {
         }
         return tracks_length;
     }
+    @Override
     public void play(){
         for (Track item : tracks){
-            System.out.println(item.getTitle());
+            System.out.println(item.toString());
             item.play();
         }
     }
+    public String toString() {
+        return "CD info: " + this.getId()
+        + " - " + this.getTitle()
+		+ " - " + this.getCategory()
+		+ " - " + this.getArtist()
+		+ " - " + this.tracks
+		+ ": " + this.getCost() + " $";
+	}
 }

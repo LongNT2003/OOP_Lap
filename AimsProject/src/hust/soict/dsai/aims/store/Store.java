@@ -1,43 +1,45 @@
 package aims.store;
 import java.util.ArrayList;
 
-import media.DigitalVideoDisc;
-import media.Media;
+import aims.media.Media;
 
-public class Store{
-    public ArrayList<Media> itemsInStore = new ArrayList<Media>(); 
+public class Store {
+    public ArrayList<Media> itemsInStore = new ArrayList<Media>();
+    public Store() {}
     public void addMedia(Media media) {
-        boolean checking = false;
+        boolean a = false;
         for (int i=0; i<itemsInStore.size(); i++) {
             if (media.equals(itemsInStore.get(i))) {
                 System.out.println("This media has already been in the store.");
-                checking = true;
+                a = true;
                 break;
             }
             else {
-                checking = false;
+                a = false;
             }
         }
-        if (checking==false) {
+        if (a==false) {
             itemsInStore.add(media);
         }
     }
+    
     public void removeMedia(Media media) {
-        boolean checking = false;
+        boolean a = false;
         for (int i=0; i<itemsInStore.size(); i++) {
             if (media.equals(itemsInStore.get(i))) {
                 itemsInStore.remove(media);
-                checking = true;
+                a = true;
                 break;
             }
             else {
-                checking = false;
+                a = false;
             }
         }
-        if (checking==false) {
+        if (a==false) {
             System.out.println("This media is not in the store.");
         }
     }
+
     public ArrayList<Media> getItemsInStore() {
         return itemsInStore;
     }
@@ -56,4 +58,5 @@ public class Store{
             System.out.println(media);
         }
     }
+
 }
