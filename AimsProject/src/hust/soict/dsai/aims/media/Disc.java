@@ -1,4 +1,4 @@
-package media;
+package aims.media;
 
 public class Disc extends Media {
     private String director;

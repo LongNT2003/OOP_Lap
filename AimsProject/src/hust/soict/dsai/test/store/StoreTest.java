@@ -1,7 +1,7 @@
 package test.store;
 
+import aims.media.DigitalVideoDisc;
 import aims.store.Store;
-import media.DigitalVideoDisc;
 
 
 

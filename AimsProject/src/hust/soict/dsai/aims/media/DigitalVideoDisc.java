@@ -1,4 +1,4 @@
-package media;
+package aims.media;
 
 public class DigitalVideoDisc extends Disc implements Playable{
     // private int id;
@@ -17,7 +17,7 @@ public class DigitalVideoDisc extends Disc implements Playable{
     public DigitalVideoDisc(String title,String category, float cost){
         super();
         nbDigitalVideoDiscs++;
-        this.id=nbDigitalVideoDiscs;
+        this.setId(nbDigitalVideoDiscs);
     }
     public DigitalVideoDisc(String title,String category,String director,int length, float cost){
         super();
