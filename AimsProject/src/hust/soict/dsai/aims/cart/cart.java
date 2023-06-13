@@ -40,7 +40,7 @@ public class Cart {
     public void searchMedia(int identify){
         boolean found = false;
         for (Media item : itemsOrdered){
-            if (item.get==identify){
+            if (item.getId()==identify){
                 found=true;
                 System.out.println(item.toString());
                 break;
