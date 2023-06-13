@@ -1,4 +1,9 @@
-package LAP2;
+package test.cart;
+
+
+
+import aims.cart.cart;
+import media.DigitalVideoDisc;
 
 public class CartTest {
     public static void main(String[] args){
@@ -7,9 +12,9 @@ public class CartTest {
         DigitalVideoDisc dvd2 = new DigitalVideoDisc("star wars", "science fiction", "George Lucas", 87, 24.95f);
         DigitalVideoDisc dvd3 = new DigitalVideoDisc( "Animation","aladin", 18.99f);
         cart.addDigitalVideoDisc(dvd1);
-        cart.addDigitalVideoDisc(dvd3);
         cart.addDigitalVideoDisc(dvd2);
+        cart.addDigitalVideoDisc(dvd3);
         cart.searchDVD("the lion king");
-        cart.searchDVD(2);
+        cart.searchDVD(3);
     }
 }

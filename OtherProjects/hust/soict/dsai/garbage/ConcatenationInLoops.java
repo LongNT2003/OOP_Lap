@@ -1,6 +1,5 @@
-package LAP2;
+
 import java.util.Random;
-import java.util.StringBuilder;
 public class ConcatenationInLoops {
     public static void main (String[] args){
         Random r = new Random(123);

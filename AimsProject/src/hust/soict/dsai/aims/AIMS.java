@@ -1,6 +1,6 @@
-package LAP2;
-import java.util.List;
-import java.util.ArrayList;
+package aims;
+import aims.cart.cart;
+import media.DigitalVideoDisc;
 
 public class AIMS{
     public static void main(String[] args){

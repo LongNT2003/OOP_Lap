@@ -1,4 +1,6 @@
-package LAP2;
+package test.disc;
+
+import media.DigitalVideoDisc;
 
 public class TestPassingParameter {
 
@@ -6,13 +8,11 @@ public class TestPassingParameter {
 		// TODO Auto-generated method stub
 		DigitalVideoDisc jungleDVD=new DigitalVideoDisc("Jungle");
 		DigitalVideoDisc cinderellaDVD=new DigitalVideoDisc("Cinderella");
-        DigitalVideoDiscWrapper jungleDVDWrapper= new DigitalVideoDiscWrapper(jungleDVD);
-        DigitalVideoDiscWrapper cinderellaWrapper= new DigitalVideoDiscWrapper(cinderellaDVD);
-        System.out.println(cinderellaDVD.id);
+        swap(cinderellaDVD,jungleDVD);
 		System.out.println("jungle dvd title: "+jungleDVD.getTitle());
 		System.out.println("cinderella dvd title: "+cinderellaDVD.getTitle());
-		changeTitle(jungleDVD,cinderellaDVD.getTitle());
-		System.out.println("jungle dvd title: "+jungleDVD.getTitle());
+		// changeTitle(jungleDVD,cinderellaDVD.getTitle());
+		// System.out.println("jungle dvd title: "+jungleDVD.getTitle());
 		}
 	public static void changeTitle (DigitalVideoDisc dvd,String title) {
 		String oldTitle=dvd.getTitle();

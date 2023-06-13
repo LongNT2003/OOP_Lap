@@ -1,50 +1,16 @@
-package LAP2;
-
+package aims.cart;
 import java.util.ArrayList;
 import java.util.List;
 
+import media.DigitalVideoDisc;
+import media.Media;
 public class cart {
     private List<DigitalVideoDisc> qtyOrdered; 
+    private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
     public cart(){
         qtyOrdered = new ArrayList<>();
     }
-    public void addDigitalVideoDisc(DigitalVideoDisc disc){
-        if (qtyOrdered.size()<20){    
-            qtyOrdered.add(disc);
-            System.out.println(disc.getTitle()+" has been added to the cart");
-        }else{
-            System.out.println("your cart full");
-        }    
-        }
-    public void addDigitalVideoDisc(DigitalVideoDisc [] dvdList){
-            if (qtyOrdered.size()<(20-dvdList.length)){    
-                for (DigitalVideoDisc item : dvdList){
-                    qtyOrdered.add(item);
-                    System.out.println(item.getTitle()+" has been added to the cart");
-                };
-                
-            }else{
-                System.out.println("your cart full");
-            }
-            
-    }
-    public void addDigitalVideoDisc(DigitalVideoDisc dvd1,DigitalVideoDisc dvd2){
-            if (qtyOrdered.size()<20){    
-                qtyOrdered.add(dvd1);
-                qtyOrdered.add(dvd2);
-                System.out.println(dvd1.getTitle()+" and "+dvd2.getTitle()+" has been added to the cart");
-            }else{
-                System.out.println("your cart full");
-            }
-    }
-    public void removeDigitalVideoDisc(DigitalVideoDisc disc){
-        if (qtyOrdered.contains(disc)){    
-            qtyOrdered.remove(disc);
-            System.out.println(disc.getTitle()+" has been removed to the cart");
-        }else{
-            System.out.println(disc.getTitle()+" is not in cart");
-        }    
-    }
+    
     public float totalCost(){
         float price =0f;
         for (DigitalVideoDisc disc: qtyOrdered){
@@ -87,3 +53,40 @@ public class cart {
         }
     }
 }
+// public void addDigitalVideoDisc(DigitalVideoDisc disc){
+//         if (qtyOrdered.size()<20){    
+//             qtyOrdered.add(disc);
+//             System.out.println(disc.getTitle()+" has been added to the cart");
+//         }else{
+//             System.out.println("your cart full");
+//         }    
+//     }
+//     public void addDigitalVideoDisc(DigitalVideoDisc [] dvdList){
+//             if (qtyOrdered.size()<(20-dvdList.length)){    
+//                 for (DigitalVideoDisc item : dvdList){
+//                     qtyOrdered.add(item);
+//                     System.out.println(item.getTitle()+" has been added to the cart");
+//                 };
+                
+//             }else{
+//                 System.out.println("your cart full");
+//             }
+            
+//     }
+//     public void addDigitalVideoDisc(DigitalVideoDisc dvd1,DigitalVideoDisc dvd2){
+//             if (qtyOrdered.size()<20){    
+//                 qtyOrdered.add(dvd1);
+//                 qtyOrdered.add(dvd2);
+//                 System.out.println(dvd1.getTitle()+" and "+dvd2.getTitle()+" has been added to the cart");
+//             }else{
+//                 System.out.println("your cart full");
+//             }
+//     }
+//     public void removeDigitalVideoDisc(DigitalVideoDisc disc){
+//         if (qtyOrdered.contains(disc)){    
+//             qtyOrdered.remove(disc);
+//             System.out.println(disc.getTitle()+" has been removed to the cart");
+//         }else{
+//             System.out.println(disc.getTitle()+" is not in cart");
+//         }    
+//     }

@@ -1,4 +1,9 @@
-package LAP2;
+package test.store;
+
+import aims.store.Store;
+import media.DigitalVideoDisc;
+
+
 
 public class StoreTest {
     public static void main(String[] args){

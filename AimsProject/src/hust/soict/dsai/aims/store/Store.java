@@ -1,6 +1,8 @@
-package LAP2;
+package aims.store;
 import java.util.ArrayList;
 import java.util.List;
+
+import media.DigitalVideoDisc;
 
 public class Store {
     private List<DigitalVideoDisc> itemsINStore;
