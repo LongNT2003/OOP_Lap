@@ -9,6 +9,7 @@ public class Cart {
         if (itemsOrdered.size()==0){itemsOrdered.add(media); return;}
         boolean checking=true;
         for (Media item : itemsOrdered){
+
             if (item.equals(media)){
                 System.out.println("media already in cart!");
                 checking=false;
@@ -42,6 +43,7 @@ public class Cart {
         boolean found = false;
         for (Media item : itemsOrdered){
             if (item.getId()==identify){
+                
                 found=true;
                 System.out.println(item.toString());
                 break;
