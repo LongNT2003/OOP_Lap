@@ -11,6 +11,10 @@ public class CompactDisc extends Media implements Playable {
         this.artist=artist;
         this.tracks=tracks;
     }
+    public CompactDisc(int id, String title, String category, float cost, String artist) {
+        super(id, title,category, cost);
+        this.artist = artist;
+    }
     public void addTrack(Track order){
         if (tracks.contains(order)){System.out.println("track already in list of tracks");}
         else{tracks.add(order);System.out.println("track was added to list");}

@@ -11,10 +11,10 @@ public class CartTest {
         DigitalVideoDisc dvd1 = new DigitalVideoDisc("the lion king", "animation","Royer Allers",87, 19.95f);
         DigitalVideoDisc dvd2 = new DigitalVideoDisc("star wars", "science fiction", "George Lucas", 87, 24.95f);
         DigitalVideoDisc dvd3 = new DigitalVideoDisc( "Animation","aladin", 18.99f);
-        cart.addDigitalVideoDisc(dvd1);
-        cart.addDigitalVideoDisc(dvd2);
-        cart.addDigitalVideoDisc(dvd3);
-        cart.searchDVD("the lion king");
-        cart.searchDVD(3);
+        cart.addMedia(dvd1);
+        cart.addMedia(dvd2);
+        cart.addMedia(dvd3);
+        cart.searchMedia("the lion king");
+        cart.searchMedia(3);
     }
 }

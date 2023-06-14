@@ -11,4 +11,4 @@ public class MediaComparatorByTitleCost implements Comparator<Media>{
         int costCompare = (int) (o1.getCost() - (o2.getCost()));
         return (titleCompare == 0) ? costCompare : titleCompare; 
     }
-    
+}
