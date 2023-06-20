@@ -1,5 +1,8 @@
 package GUIProject.hust.soict.dsai.swing;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.*;
 public class NumberGrid extends JFrame {
     private JButton[] btnNumbers = new JButton[10];
@@ -43,6 +46,21 @@ public class NumberGrid extends JFrame {
         panelButtons.add(btnReset);
         btnReset.addActionListener(btnListener);
     }
+    public static void main(String[] args) {
+        new NumberGrid();
+    }
 
-    private class
+    private class ButtonListener implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e){
+            String button= e.getActionCommand();
+            if(button.charAt(0)>='0' && button.charAt(0) <='9'){
+                tfDisplay.setText(tfDisplay.getText()+button);
+            } else if( button.equals("DEL")){
+                tfDisplay.setText(tfDisplay.getText().substring(1));
+            } else {
+                tfDisplay.setText(tfDisplay.getText().substring(0,tfDisplay.getText().length()-1));
+            }
+        }
+    }
 }
