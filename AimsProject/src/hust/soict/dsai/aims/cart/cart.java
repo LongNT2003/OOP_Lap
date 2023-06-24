@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import aims.media.Media;
 public class Cart {
     public static final int MAX_ORDERED=20;
-    private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
+    private ObservableList<Media> itemsOdered = FXCollections.observableArrayList();
     public void addMedia(Media media){
         if (itemsOrdered.size()==0){itemsOrdered.add(media); return;}
         boolean checking=true;
