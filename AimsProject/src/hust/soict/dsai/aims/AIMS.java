@@ -39,14 +39,14 @@ public class AIMS{
 		System.out.println("AIMS: ");
 		System.out.println("--------------------------------");
 		System.out.println("1. View store");
-        System.out.println("2. Update store");
+        	System.out.println("2. Update store");
 		System.out.println("3. See current cart");
 		System.out.println("0. Exit");
 		System.out.println("--------------------------------");
 		System.out.println("Please choose a number: 0-1-2-3");
-        int option = scanner.nextInt();
+        int Decision = scanner.nextInt();
 		scanner.nextLine();
-		switch (option){
+		switch (Decision){
 			case 1:
 				viewStore();
 				break;
@@ -57,12 +57,11 @@ public class AIMS{
 				seeCurrentCart();
 				break;
 			case 0:
-				System.out.println("You are exitted.");
+				System.out.println("Exiting");
 				break;
 		}
 		
 	}
-    //option 1
     private static void viewStore(){
 		for (Media item: store.getItemsInStore()){
 			System.out.println(item);
@@ -79,10 +78,10 @@ public class AIMS{
 		System.out.println("0. Back");
 		System.out.println("--------------------------------");
 		System.out.println("Please choose a number: 0-1-2-3-4");
-        int option = scanner.nextInt();
+        int Decision = scanner.nextInt();
 		scanner.nextLine();
 
-		switch (option){
+		switch (Decision){
 			case 1:
 				seeMediaDetail();
 				break;
@@ -101,21 +100,24 @@ public class AIMS{
 		}
 		storeMenu();
     }
-    //option 1.1
+
+
     private static void seeMediaDetail(){
-			System.out.println("Enter title of media: ");
+			System.out.println("Enter the title of media: ");
 			String title = scanner.nextLine();
-			boolean isInStore = false;
+			
+			boolean existing = false;
 			for (Media media: store.getItemsInStore()){
 				if (media.getTitle().equals(title)){
 					Media yourMedia = media;
-					isInStore = true;
+					existing = true;
 					System.out.println(media);
 					mediaDetailsMenu(yourMedia);
 				}
 			}
-			if (!isInStore){
-				System.out.println("This media is not in the store.");
+
+			if (!existing){
+				System.out.println("media not existing");
 				
 			}
 			storeMenu();
@@ -129,9 +131,9 @@ public class AIMS{
 			System.out.println("--------------------------------");
 			System.out.println("Please choose a number: 0-1-2");
 
-			int option = scanner.nextInt();
+			int Decision = scanner.nextInt();
 			scanner.nextLine();
-			switch (option){
+			switch (Decision){
 				case 1:
 					cart.addMedia(media);
 					break;
@@ -143,7 +145,7 @@ public class AIMS{
 						DigitalVideoDisc castMedia = (DigitalVideoDisc) media;
 						castMedia.play();
 					} else {
-						System.out.println("This media can not display.");
+						System.out.println("This media is not able to display");
 						mediaDetailsMenu(media);
 					}
 				case 0:
@@ -152,35 +154,33 @@ public class AIMS{
 			}
 			storeMenu();
 		}
-        //Option 1.2
 		private static void addMedia2Cart(){
 			for (Media media: store.getItemsInStore()){
 				System.out.println(media);
 			}
 			System.out.println("Enter title of media to add:");
 			String yourTitle = scanner.nextLine();
-			boolean isInStore = false;
+			boolean existing = false;
 			for (Media media: store.getItemsInStore()){
 				if (media.getTitle().equals(yourTitle)){
 					cart.addMedia(media);
-					isInStore = true;
+					existing = true;
 				}
 				
 			}
-			if (!isInStore){
+			if (!existing){
 				System.out.println("This is not valid title");
 				
 			}
 			storeMenu();
 		}
-    //option 1.3
     private static void playMedia(){
 			System.out.println("Enter the title of media to play");
 			String yourTitle = scanner.nextLine();
-			boolean isInStore = false;
+			boolean existing = false;
 			for (Media media: store.getItemsInStore()){
 				if (media.getTitle().equals(yourTitle)){
-					isInStore = true;
+					existing = true;
 					if (media instanceof CompactDisc){
 						CompactDisc castMedia = (CompactDisc) media;
 						castMedia.play();
@@ -188,20 +188,18 @@ public class AIMS{
 						DigitalVideoDisc castMedia = (DigitalVideoDisc) media;
 						castMedia.play();
 					} else {
-						System.out.println("This media can not play");
+						System.out.println("This media is not able to play");
 					}
 				}
 			}
-			if (!isInStore){
+			if (!existing){
 				System.out.println("Can not find media with this title");
 			}
 			storeMenu();
 		}
-    //Option 1.4
 		private static void currentCart(){
 			cart.show_ordered_item();
 		}
-	//Option 2
 	private static void updateStore(){
 		System.out.println("Options: ");
 		System.out.println("--------------------------------");
@@ -209,13 +207,13 @@ public class AIMS{
 		System.out.println("2. Remove a media from store");
 		System.out.println("0. Back");
 
-		System.out.println("Choose a number:");
-		int option = scanner.nextInt();
+		System.out.println("Choose a number: 0-1-2");
+		int Decision = scanner.nextInt();
 		scanner.nextLine();
 
-		switch (option){
+		switch (Decision){
 			case 1:
-				addMedia2Store();
+				addMediatoStore();
 				break;
 			case 2:
 				
@@ -227,7 +225,7 @@ public class AIMS{
 		}
 		showMenu();
 	}
-	public static void addMedia2Store(){
+	public static void addMediatoStore(){
 		System.out.println("Options: ");
 		System.out.println("--------------------------------");
 		System.out.println("1. Book");
@@ -235,9 +233,9 @@ public class AIMS{
 		System.out.println("3. CompactDisc");
 		System.out.println("0. Back");
 
-		int option = scanner.nextInt();
+		int Decision = scanner.nextInt();
 		scanner.nextLine();
-		switch (option) {
+		switch (Decision) {
 			case 1:
 				System.out.println("Enter id of media: ");
 				int id = scanner.nextInt();
@@ -297,21 +295,20 @@ public class AIMS{
 		System.out.println("Enter id of media to remove:");
 		int id = scanner.nextInt();
 		scanner.nextLine();
-		boolean isInStore = false;
+		boolean existing = false;
 		for (Media media: store.getItemsInStore()){
 			if (media.getId() == id){
-				isInStore = true;
+				existing = true;
 				store.removeMedia(media);
 				}
 			}
-		if (!isInStore){
-			System.out.println("Can not find media with id = " + id);
+		if (!existing){
+			System.out.println("media not found by id = " + id);
 		}
 		updateStore();
 	}
 
 
-	//Option 3
 	private static void seeCurrentCart(){
 		cart.show_ordered_item();
 		cartMenu();
@@ -330,9 +327,9 @@ public class AIMS{
 		System.out.println("--------------------------------");
 		System.out.println("Please choose a number: 0-1-2-3-4-5");
 
-		int option = scanner.nextInt();
+		int Decision = scanner.nextInt();
 		scanner.nextLine();
-		switch (option){
+		switch (Decision){
 			case 1:
 				fillterMedia();
 				break;
@@ -361,10 +358,10 @@ public class AIMS{
 		System.out.println("1. Filter by id");
 		System.out.println("2. Filter by title");
 		System.out.println("0. Back");
-
-		int option = scanner.nextInt();
+		System.out.println("Please choose a number: 0-1-2");
+		int Decision = scanner.nextInt();
 		scanner.nextLine();
-		switch (option){
+		switch (Decision){
 
 			case 1:
 				int id = scanner.nextInt();
@@ -390,8 +387,8 @@ public class AIMS{
 		System.out.println("2. Sort by title");
 		System.out.println("0. Back");
 		
-		int option = scanner.nextInt();
-		switch (option) {
+		int Decision = scanner.nextInt();
+		switch (Decision) {
 			case 1:
 				Collections.sort(cart.getItemsOrdered(), Media.COMPARE_BY_COST_TITLE);
 				cart.show_ordered_item();
@@ -412,18 +409,18 @@ public class AIMS{
 	}
 	public static void removeMedia(){
 		cart.show_ordered_item();
-		System.out.println("Enter id of media in cart to remove");
+		System.out.println("Enter media id in cart to remove");
 		int id = scanner.nextInt();
 		scanner.nextLine();
-		boolean isinCart = false;
+		boolean existing = false;
 		for (Media media: cart.getItemsOrdered()){
 			if (media.getId() == id){
-				isinCart = true;
+				existing = true;
 				cart.removeMedia(media);
 			}
 		}
-		if (!isinCart){
-			System.out.println("Can not find media with ID = " + id);
+		if (!existing){
+			System.out.println("meida not found with id = " + id);
 			
 		}
 		cartMenu();
@@ -431,10 +428,10 @@ public class AIMS{
 	}
 	public static void playMediaCart(){
 		cart.show_ordered_item();
-		System.out.println("Enter id of media in cart to play");
+		System.out.println("Enter media id in cart to play");
 		int id = scanner.nextInt();
 		scanner.nextLine();
-		boolean isinCart = false;
+		boolean existing = false;
 		for (Media media: cart.getItemsOrdered()){
 			
 			if (media.getId() == id){
@@ -447,12 +444,12 @@ public class AIMS{
 					castMedia.play();
 					cartMenu();
 				} else {
-					System.out.println("Media with this id is not playable.");
+					System.out.println("Media is not playable");
 					cartMenu();
 				}
 			}
 		}
-		if (!isinCart){
+		if (!existing){
 			System.out.println("Can not find media with ID = " + id + " to play.");
 		}
 		cartMenu();
@@ -463,4 +460,3 @@ public class AIMS{
 	}
 
 }
-
