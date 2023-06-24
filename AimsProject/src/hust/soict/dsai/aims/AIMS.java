@@ -292,7 +292,7 @@ public class AIMS{
 
 	public static void removeMediaStore(){
 		store.display();
-		System.out.println("Enter id of media to remove:");
+		System.out.println("Enter media id to remove:");
 		int id = scanner.nextInt();
 		scanner.nextLine();
 		boolean existing = false;
@@ -386,7 +386,7 @@ public class AIMS{
 		System.out.println("1. Sort by id");
 		System.out.println("2. Sort by title");
 		System.out.println("0. Back");
-		
+		System.out.println("Please choose a number: 0-1-2");
 		int Decision = scanner.nextInt();
 		switch (Decision) {
 			case 1:
@@ -450,13 +450,12 @@ public class AIMS{
 			}
 		}
 		if (!existing){
-			System.out.println("Can not find media with ID = " + id + " to play.");
+			System.out.println("media not found with ID = " + id + " to play.");
 		}
 		cartMenu();
 	}
 	public static void placeOrder(){
 		System.out.println("Your order is prepared.");
-		cart = new Cart();
 	}
 
 }
