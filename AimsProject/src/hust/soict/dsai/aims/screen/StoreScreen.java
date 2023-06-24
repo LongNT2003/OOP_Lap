@@ -1,21 +1,17 @@
 package aims.screen;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 import java.util.ArrayList;
 
 import javax.swing.*;
 
-import aims.cart.Cart;
-import aims.media.Book;
-import aims.media.DigitalVideoDisc;
+
 import aims.media.Media;
 import aims.store.Store;
 
 public class StoreScreen extends JFrame {
     private Store store;
-    private Cart cart;
     JPanel createNorth(){
         JPanel north =new JPanel();
         north.setLayout(new BoxLayout(north, BoxLayout.Y_AXIS));
@@ -26,7 +22,6 @@ public class StoreScreen extends JFrame {
     JMenuBar createMenuBar(){
         JMenu menu = new JMenu("Options");
         JMenu smUpdateStore = new JMenu("Update Store");
-        //change in here
         smUpdateStore.add(new JMenuItem("Add Book"));
         smUpdateStore.add(new JMenuItem("Add CD"));
         smUpdateStore.add(new JMenuItem("Add DVD"));
@@ -60,7 +55,7 @@ public class StoreScreen extends JFrame {
         JPanel center= new JPanel();
         center.setLayout(new GridLayout(3,3,2,2));
         ArrayList<Media> mediaInStore =store.getItemsInStore();
-        for (int i=0;i<2;i++){
+        for (int i=0;i<9;i++){
             MediaStore cell = new MediaStore(mediaInStore.get(i));
             center.add(cell);
         }
@@ -71,18 +66,18 @@ public class StoreScreen extends JFrame {
         this.store=store;
         Container cp =getContentPane();
         cp.add(createNorth(),BorderLayout.NORTH);
-        cp.add(createCenter(),BorderLayout.CENTER);
+        cp.add(createNorth(),BorderLayout.CENTER);
         setVisible(true);
         setTitle("Store");
         setSize(1024, 768);
     }
-    
+
+
+
+
+
     public static void main(String[] args){
-        Store store = new Store();   
-        DigitalVideoDisc  dvd1= new DigitalVideoDisc("loyal");
-        DigitalVideoDisc  dvd2= new DigitalVideoDisc("benetal");
-        store.addMedia(dvd1); 
-        store.addMedia(dvd2); 
+        Store store = new Store();    
         new StoreScreen(store);
     }
 }
