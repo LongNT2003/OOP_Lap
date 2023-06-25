@@ -1,5 +1,6 @@
-package aims.media;
+package src.hust.soict.dsai.aims.media;
 
+import src.hust.soict.dsai.aims.exception.PlayerException;
 public class DigitalVideoDisc extends Disc implements Playable{
     
     
