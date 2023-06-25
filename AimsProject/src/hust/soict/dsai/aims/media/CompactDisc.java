@@ -31,11 +31,21 @@ public class CompactDisc extends Media implements Playable {
         return tracks_length;
     }
     @Override
-    public void play(){
-        for (Track item : tracks){
-            System.out.println(item.toString());
-            item.play();
-        }
+    public void play() throws PlayerException {
+    	
+        if (this.getLength()>0) {
+        	java.util.Iterator iter=tracks.iterator();
+        	Track nextTrack;
+        	while (iter.hasNext()) {
+        		nextTrack=(Track) iter.next();
+        		try {
+        			nextTrack.play();
+        		}catch (PlayerException e) {
+					// TODO: handle exception
+        			throw e;
+				}
+        	}
+        } else throw new PlayerException("ERROR: CD length is non-positive");
     }
     public String toString() {
         return "CD info: " + this.getId()
