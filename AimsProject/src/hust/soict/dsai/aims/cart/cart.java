@@ -5,7 +5,8 @@ import aims.media.Media;
 public class Cart {
     public static final int MAX_ORDERED=20;
     private ObservableList<Media> itemsOdered = FXCollections.observableArrayList();
-    public void addMedia(Media media){
+    public void addMedia(Media media) throws LimitExceededException{
+        if (itemsOdered.size()<MAX_ORDERED){
         if (itemsOrdered.size()==0){itemsOrdered.add(media); return;}
         boolean checking=true;
         for (Media item : itemsOrdered){
@@ -17,6 +18,9 @@ public class Cart {
             }
         }
         if (checking){itemsOrdered.add(media);}
+        }else{
+            throw new LimitExceededException("ERROR: The number of "+"media has reached its limit");
+        }
     }
     public void removeMedia(Media media){
         if (itemsOrdered.contains(media)){itemsOrdered.remove(media);}
