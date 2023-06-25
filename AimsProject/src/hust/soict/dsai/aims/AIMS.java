@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 
-
+import aims.exception.PlayerException;
 import aims.cart.Cart;
 import aims.media.Book;
 import aims.media.CompactDisc;
@@ -175,25 +175,33 @@ public class AIMS{
 			storeMenu();
 		}
     private static void playMedia(){
-			System.out.println("Enter the title of media to play");
+			System.out.println("Enter the media title to play");
 			String yourTitle = scanner.nextLine();
-			boolean existing = false;
+			boolean isInStore = false;
 			for (Media media: store.getItemsInStore()){
 				if (media.getTitle().equals(yourTitle)){
-					existing = true;
+					isInStore = true;
 					if (media instanceof CompactDisc){
 						CompactDisc castMedia = (CompactDisc) media;
+						try {
 						castMedia.play();
+						} catch (PlayerException e) {
+							e.printStackTrace();
+						}
 					} else if ( media instanceof DigitalVideoDisc){
 						DigitalVideoDisc castMedia = (DigitalVideoDisc) media;
+						try {
 						castMedia.play();
+						} catch (PlayerException e) {
+							e.printStackTrace();
+						}
 					} else {
-						System.out.println("This media is not able to play");
+						System.out.println("This media not able play");
 					}
 				}
 			}
-			if (!existing){
-				System.out.println("Can not find media with this title");
+			if (!isInStore){
+				System.out.println("media not found with this title");
 			}
 			storeMenu();
 		}
