@@ -17,9 +17,13 @@ public class Track implements Playable{
         this.title = title;
     }
     @Override
-    public void play(){
-        System.out.println("p");
-    }
+    public void play() throws PlayerException {
+		// TODO Auto-generated method stub
+     if (this.getLength()>0) {
+		System.out.println("p");
+    	} else throw new PlayerException("Error: Length cannot be non-positive!");
+
+	}
     public String toString() {
         return "Name: " + this.getTitle() + "; Length: " + this.getLength();
     }
